@@ -49,7 +49,9 @@ def predict():
     else:
         data = np.array([[crop, days, moisture, temperature, humidity]])
         prediction = model.predict(data)
-        if prediction[0] == 1:
+        if moisture>=500:
+            output = 'Irrigation not needed!'
+        elif prediction[0] == 1:
             output = 'Start your Irrigation!'
         else:
             output = 'Irrigation not needed!'
@@ -58,7 +60,7 @@ def predict():
 
 
 def fetchingApi(inputVal):
-    heavy_rains_id = [201, 202, 211, 212, 232, 804,
+    heavy_rains_id = [201, 202, 211, 212, 232,
                       314, 501, 502, 503, 504, 511, 522]
 
     response_API = requests.get(
@@ -77,4 +79,4 @@ def fetchingApi(inputVal):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
