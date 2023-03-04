@@ -20,9 +20,9 @@ Target = df['Irrigation']
 
 Xtrain, Xtest, Ytrain, Ytest = train_test_split(
     Features, Target, test_size=0.2, random_state=2)
-scaler = MinMaxScaler()
-Xtrain = scaler.fit_transform(Xtrain)
-Xtest = scaler.transform(Xtest)
+# scaler = MinMaxScaler()
+# Xtrain = scaler.fit_transform(Xtrain)
+# Xtest = scaler.transform(Xtest)
 
 
 RF = RandomForestClassifier(n_estimators=20, random_state=0)
